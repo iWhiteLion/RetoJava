@@ -10,6 +10,6 @@ import com.tcs.reto.entities.ContactPhone;
 public interface ContactPhoneRepository extends JpaRepository<ContactPhone, String> {
 
 	@Modifying
-	@Query(value = "UPDATE ContactPhone a SET a.numeroCuenta = :newNumero WHERE a.numeroCelular = :numeroCelular")
+	@Query(value = "UPDATE ContactPhone a SET a.accNumber = :newNumber WHERE a.phoneNumber = :phoneNumber")
 	int updateNumber(@Param("phoneNumber") String phoneNumber, @Param("newNumber") String newNumber);
 }

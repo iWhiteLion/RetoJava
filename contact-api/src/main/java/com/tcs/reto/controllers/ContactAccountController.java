@@ -37,8 +37,8 @@ public class ContactAccountController {
 		return ApiResponse.builder().code(200).message("Get List").data(accounts).build();
 	}
 
-	@PutMapping(produces = { MediaType.APPLICATION_JSON_VALUE }, value = "{pk}/{numero}")
-	public ApiResponse update(@PathVariable("pk") Long pk, @PathVariable("numero") String number) {
+	@PutMapping(produces = { MediaType.APPLICATION_JSON_VALUE }, value = "{pk}/{number}")
+	public ApiResponse update(@PathVariable("pk") Long pk, @PathVariable("number") String number) {
 		int rows = service.update(pk, number);
 
 		return ApiResponse.builder().code(200).message("Get List").data(rows).build();
