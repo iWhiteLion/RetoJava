@@ -10,5 +10,5 @@ public interface ContactAccountService {
 
 	List<ContactDto> findAll();
 
-	int update(Long pk, String numero);
+	int update(Long pk, String number);
 }

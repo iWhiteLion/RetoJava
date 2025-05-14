@@ -41,9 +41,9 @@ public class ContactPhoneController {
 	}
 
 	@PutMapping(produces = { MediaType.APPLICATION_JSON_VALUE }, value = "{numeroCelular}/{numero}")
-	public ApiResponse update(@PathVariable("numeroCelular") String numeroCelular,
-			@PathVariable("numero") String numero) {
-		int rows = service.updateNumber(numeroCelular, numero);
+	public ApiResponse update(@PathVariable("numeroCelular") String phoneNumber,
+			@PathVariable("numero") String number) {
+		int rows = service.updateNumber(phoneNumber, number);
 
 		return ApiResponse.builder().code(200).message("Update Phone Account").data(rows).build();
 	}

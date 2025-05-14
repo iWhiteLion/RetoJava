@@ -16,11 +16,11 @@ import lombok.NoArgsConstructor;
 @Table(name = "contactaccount")
 public class ContactAccount {
 
-	private String banco;
+	private String bank;
 
-	private String nombre;
+	private String name;
 
-	private String numero;
+	private String number;
 
 	@Id
 	private Long pk;

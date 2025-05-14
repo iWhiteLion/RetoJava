@@ -34,21 +34,25 @@ public class ContactPhoneServiceImpl implements ContactPhoneService {
 			log.error(ex.getMessage(), ex);
 		}
 
-		return list.stream().filter(contact -> Objects.nonNull(contact.getNombrePropietario()) && !contact.getNombrePropietario().isBlank())
-				.map(contact -> ContactDto.builder().name(contact.getNombrePropietario())
-						.nombreBanco(contact.getNombreDelBanco()).numeroCuenta(contact.getNumeroCuenta())
-						.tipo(ContactTypeEnum.PHONE).build())
-				.toList();
+		return list.stream()
+			.filter(contact -> Objects.nonNull(contact.getOwnerName()) && !contact.getOwnerName().isBlank())
+			.map(contact -> ContactDto.builder()
+				.name(contact.getOwnerName())
+				.bankName(contact.getBankName())
+				.accNumber(contact.getAccNumber())
+				.type(ContactTypeEnum.PHONE)
+				.build())
+			.toList();
 	}
 
 	@Override
-	public void delete(String clave) {
-		log.info("Eliminando el la clave: {}", clave);
+	public void delete(String key) {
+		log.info("Eliminando la clave: {}", key);
 
-		boolean flag = repository.existsById(clave);
+		boolean flag = repository.existsById(key);
 
 		if (flag) {
-			repository.deleteById(clave);
+			repository.deleteById(key);
 		} else {
 			log.error("El número ingresado no existe");
 
@@ -58,8 +62,8 @@ public class ContactPhoneServiceImpl implements ContactPhoneService {
 
 	@Override
 	@Transactional(rollbackFor = RuntimeException.class)
-	public int updateNumber(String numeroCelular, String newNumero) {
-		int flag = repository.updateNumber(numeroCelular, newNumero);
+	public int updateNumber(String phoneNumber, String newNumber) {
+		int flag = repository.updateNumber(phoneNumber, newNumber);
 
 		if (flag >= 2) {
 			log.error("Se actualizaron {} registros", flag);

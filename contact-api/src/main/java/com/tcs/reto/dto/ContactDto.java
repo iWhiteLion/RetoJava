@@ -11,9 +11,9 @@ public class ContactDto {
 
 	private String name;
 
-	private String nombreBanco;
+	private String bankName;
 
-	private String numeroCuenta;
+	private String accNumber;
 
-	private ContactTypeEnum tipo;
+	private ContactTypeEnum type;
 }

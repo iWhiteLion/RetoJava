@@ -32,16 +32,16 @@ public class ContactAccountServiceImpl implements ContactAccountService {
 		log.info("Finding all contact accounts");
 
 		return repository.findAll().stream()
-				.map(contact -> ContactDto.builder().name(contact.getNombre()).nombreBanco(contact.getBanco())
-						.numeroCuenta(contact.getNumero()).tipo(ContactTypeEnum.ACCOUNT).build())
+				.map(contact -> ContactDto.builder().name(contact.getName()).bankName(contact.getBank())
+						.accNumber(contact.getNumber()).type(ContactTypeEnum.ACCOUNT).build())
 				.toList();
 	}
 
 	@Override
 	@Transactional
-	public int update(Long pk, String numero) {
-		log.info("Updating contact account with pk: {} and numero: {}", pk, numero);
+	public int update(Long pk, String number) {
+		log.info("Updating contact account with pk: {} and numero: {}", pk, number);
 
-		return repository.updateNumber(pk, numero);
+		return repository.updateNumber(pk, number);
 	}
 }

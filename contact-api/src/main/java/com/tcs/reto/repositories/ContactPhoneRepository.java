@@ -11,5 +11,5 @@ public interface ContactPhoneRepository extends JpaRepository<ContactPhone, Stri
 
 	@Modifying
 	@Query(value = "UPDATE ContactPhone a SET a.numeroCuenta = :newNumero WHERE a.numeroCelular = :numeroCelular")
-	int updateNumber(@Param("numeroCelular") String numeroCelular, @Param("newNumero") String newNumero);
+	int updateNumber(@Param("phoneNumber") String phoneNumber, @Param("newNumber") String newNumber);
 }

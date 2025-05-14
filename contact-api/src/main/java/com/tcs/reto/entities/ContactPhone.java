@@ -17,13 +17,14 @@ import lombok.NoArgsConstructor;
 public class ContactPhone {
 
 	@Id
-	private String clave;
+	private String key;
 
-	private String nombreDelBanco;
+	private String bankName;
 
-	private String nombrePropietario;
+	private String ownerName;
 
-	private String numeroCelular;
+	private String phoneNumber;
 
-	private String numeroCuenta;
+	private String accNumber;
 }
+

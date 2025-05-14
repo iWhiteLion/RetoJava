@@ -10,5 +10,5 @@ public interface ContactPhoneService {
 
 	void delete(String phoneNumber);
 
-	int updateNumber(String numeroCelular, String newNumero);
+	int updateNumber(String phoneNumber, String newNumber);
 }
