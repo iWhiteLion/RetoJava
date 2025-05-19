@@ -21,8 +21,7 @@ public class CuentaController {
     public List<Cuenta> getAllAccounts() {
         return accountService.getAllAccounts();
     }
-
-    //Se debe usar @PathVariable("accountNumber") String accountNumber) para que postman reconozca el endpoint /{accountNumber}
+//Se debe usar >>>>>>@PathVariable("accountNumber") String accountNumber<<<<<< para que postman reconozca el endpoint /{accountNumber}
     @GetMapping("/{accountNumber}")
     public ResponseEntity<Cuenta> getAccountByNumber(@PathVariable("accountNumber") String accountNumber) {
         return accountService.getAccountByNumber(accountNumber)
@@ -35,7 +34,7 @@ public class CuentaController {
         return accountService.createAccount(account);
     }
 
-//Se debe usar @PathVariable("accountNumber") String accountNumber) para que postman reconozca el endpoint /{accountNumber}
+//Se debe usar >>>>>>@PathVariable("accountNumber") String accountNumber<<<<<< para que postman reconozca el endpoint /{accountNumber}
     @PutMapping("/{accountNumber}")
     public ResponseEntity<Cuenta> updateAccount(@PathVariable("accountNumber") String accountNumber, @RequestBody Cuenta account) {
         try {
@@ -45,8 +44,7 @@ public class CuentaController {
             return ResponseEntity.notFound().build();
         }
     }
-
-    //Se debe usar @PathVariable("accountNumber") String accountNumber) para que postman reconozca el endpoint /{accountNumber}
+//Se debe usar >>>>>>@PathVariable("accountNumber") String accountNumber<<<<<< para que postman reconozca el endpoint /{accountNumber}
     @DeleteMapping("/{accountNumber}")
     public ResponseEntity<Void> deleteAccount(@PathVariable("accountNumber") String accountNumber) { 
         accountService.deleteAccount(accountNumber);

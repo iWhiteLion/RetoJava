@@ -22,8 +22,9 @@ public class MovimientoController {
         return MovimientoService.getAllTransactions();
     }
 
+//Se debe usar >>>>>>@PathVariable ("id")Long id<<<<<<<<  para que postman reconozca el endpoint /{id}
     @GetMapping("/{id}")
-    public ResponseEntity<Movimiento> getMovimientoById(@PathVariable Long id) {
+    public ResponseEntity<Movimiento> getMovimientoById(@PathVariable ("id")Long id) {
         return MovimientoService.getTransactionById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -38,9 +39,10 @@ public class MovimientoController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-
+    
+//Se debe usar >>>>>>@PathVariable ("id")Long id<<<<<<  para que postman reconozca el endpoint /{id}
     @PutMapping("/{id}")
-    public ResponseEntity<Movimiento> updateMovimiento(@PathVariable Long id, @RequestBody Movimiento Movimiento) {
+    public ResponseEntity<Movimiento> updateMovimiento(@PathVariable ("id") Long id, @RequestBody Movimiento Movimiento) {
         try {
             Movimiento updated = MovimientoService.updateTransaction(id, Movimiento);
             return ResponseEntity.ok(updated);
@@ -48,9 +50,10 @@ public class MovimientoController {
             return ResponseEntity.notFound().build();
         }
     }
-
+    
+//Se debe usar >>>>>>@PathVariable ("id")Long id<<<<<<<<  para que postman reconozca el endpoint /{id}
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteMovimiento(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteMovimiento(@PathVariable ("id")Long id) {
         MovimientoService.deleteTransaction(id);
         return ResponseEntity.noContent().build();
     }
