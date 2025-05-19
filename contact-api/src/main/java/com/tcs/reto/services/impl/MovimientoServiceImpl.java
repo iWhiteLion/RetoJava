@@ -38,10 +38,9 @@ public class MovimientoServiceImpl implements MovimientoService {
         BigDecimal monto = movimiento.getValor();
 
         if (movimiento.getTipoMovimiento().equals(TypeMovementEnum.RETIRO.name()) &&
-            saldoActual.compareTo(monto) < 0) {
-            throw new RuntimeException("Saldo insuficiente");
-        }
-
+        	    saldoActual.compareTo(monto) < 0) {
+        	    throw new RuntimeException("Saldo Insuficiente");
+        	}
         BigDecimal nuevoSaldo;
         if (movimiento.getTipoMovimiento().equals(TypeMovementEnum.RETIRO.name())) {
             nuevoSaldo = saldoActual.subtract(monto);
