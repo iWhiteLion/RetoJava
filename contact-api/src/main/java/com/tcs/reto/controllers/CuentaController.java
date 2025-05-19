@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cuentas")
+@RequestMapping("/cuentas") //Endpoint http://localhost:8080/cuentas
 public class CuentaController {
 
     private final CuentaService accountService;

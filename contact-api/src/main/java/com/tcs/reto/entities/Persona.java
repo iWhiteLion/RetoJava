@@ -5,7 +5,7 @@ import lombok.*;
 
 @Entity
 @Table(name = "person")
-@Data
+@Data //Getters y Setters
 @NoArgsConstructor
 @AllArgsConstructor
 public class Persona {

@@ -2,14 +2,12 @@ package com.tcs.reto.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.time.LocalDateTime;
 import java.math.BigDecimal;
 
-
 @Entity
 @Table(name = "transaction")
-@Data
+@Data //Getters y Setters
 @NoArgsConstructor
 @AllArgsConstructor
 public class Movimiento {

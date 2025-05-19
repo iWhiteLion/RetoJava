@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface MovimientoService {
+	//CRUD Movimiento
     List<Movimiento> getAllTransactions();
     Optional<Movimiento> getTransactionById(Long id);
     Movimiento createTransaction(Movimiento transaction) throws Exception;

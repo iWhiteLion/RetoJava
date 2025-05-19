@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ClienteService {
+	//CRUD Cliente
     List<Cliente> getAllClients();
     Optional<Cliente> getClientById(Integer id);
     Cliente createClient(Cliente client);
