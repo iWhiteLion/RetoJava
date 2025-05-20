@@ -1,0 +1,104 @@
+{
+  "info": {
+    "name": "contact-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Clientes",
+      "item": [
+        {
+          "name": "Crear Cliente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"person\": {\n    \"name\": \"Tobias Tamayo\",\n    \"gender\": \"M\",\n    \"age\": 30,\n    \"dni\": \"09949930030\",\n    \"address\": \"Av. Colon\",\n    \"phone\": \"09949930030\"\n  },\n  \"password\": \"pass1234\",\n  \"status\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/clientes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["clientes"]
+            }
+          }
+        },
+        {
+          "name": "Obtener Todos los Clientes",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/clientes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["clientes"]
+            }
+          }
+        },
+        {
+          "name": "Obtener Cliente por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/clientes/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["clientes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Cliente",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Juan Modificado\",\n  \"apellido\": \"García\",\n  \"dni\": \"12345678\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/clientes/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["clientes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar Cliente",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:8080/clientes/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["clientes", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

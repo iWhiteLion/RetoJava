@@ -42,7 +42,11 @@ public class ClienteServiceImpl implements ClienteService {
     }
     @Override
     public void deleteClient(Integer id) {
-        clienteRepository.deleteById(id);
+        //clienteRepository.deleteById(id);
+    	 if (!clienteRepository.existsById(id)) {
+    	        throw new RuntimeException("Cliente con ID " + id + " no encontrado.");
+    	    }
+    	    clienteRepository.deleteById(id);
     }
 	@Override
 	public Cliente createClient(Cliente client) {
