@@ -63,7 +63,7 @@
           }
         },
         {
-          "name": "Actualizar Cliente",
+          "name": "Actualizar Cliente", 
           "request": {
             "method": "PUT",
             "header": [
@@ -95,6 +95,60 @@
               "host": ["localhost"],
               "port": "8080",
               "path": ["clientes", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cuentas",
+      "item": [
+        {
+          "name": "Crear Cuenta",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cliente\": {\n    \"id\": 1\n  },\n  \"numeroCuenta\": \"ACC123456\",\n  \"tipo\": \"AHORRO\",\n  \"saldoInicial\": 1000.0\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/cuentas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["cuentas"]
+            }
+          }
+        },
+        {
+          "name": "Listar Cuentas",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/cuentas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["cuentas"]
+            }
+          }
+        },
+        {
+          "name": "Obtener Cuenta por Numero de cuenta",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/cuentas/ACC345678",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["cuentas", "ACC345678"]
             }
           }
         }
