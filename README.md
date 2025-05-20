@@ -65,4 +65,5 @@ Reto realizado en base al Seniority de Junior ": Implementar los diferentes endp
     │       │   application.properties
     │       │   BDD.sql
     │       │   datosPrueba.sql
+    │       │   test.json
 ```
