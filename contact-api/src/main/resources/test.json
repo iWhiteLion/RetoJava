@@ -153,6 +153,96 @@
           }
         }
       ]
+    },
+    {
+      "name": "Movimientos",
+      "item": [
+        {
+          "name": "Crear Movimiento RETIRO",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipoMovimiento\": \"RETIRO\",\n  \"valor\": 100.00,\n  \"cuenta\": {\n    \"numeroCuenta\": \"ACC345678\"\n  }\n}"              
+            },
+            "url": {
+              "raw": "http://localhost:8080/movimientos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["movimientos"]
+            }
+          }
+        },
+        {
+          "name": "Crear Movimiento DEPOSITO",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipoMovimiento\": \"DEPOSITO\",\n  \"valor\": 100.00,\n  \"cuenta\": {\n    \"numeroCuenta\": \"ACC345678\"\n  }\n}"              
+            },
+            "url": {
+              "raw": "http://localhost:8080/movimientos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["movimientos"]
+            }
+          }
+        },
+        {
+          "name": "Listar Movimientos",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/movimientos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["movimientos"]
+            }
+          }
+        },
+        {
+          "name": "Obtener Movimiento por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:8080/movimientos/3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["movimientos", "3"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar Movimiento por ID",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:8080/movimientos/3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["movimientos", "3"]
+            }
+          }
+        }
+      ]
     }
   ]
 }
