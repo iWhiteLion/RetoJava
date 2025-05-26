@@ -2,6 +2,7 @@ package com.tcs.reto.services.impl;
 
 import com.tcs.reto.entities.Cliente;
 import com.tcs.reto.repositories.ClienteRepository;
+import com.tcs.reto.repositories.PersonaRepository;
 import com.tcs.reto.services.ClienteService;
 
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,7 @@ import java.util.Optional;
 public class ClienteServiceImpl implements ClienteService {
 
     private final ClienteRepository clienteRepository;
+    private final PersonaRepository personaRepository;  // Inyectar repo Persona
 
     @Override
     public List<Cliente> getAllClients() {
@@ -48,10 +50,12 @@ public class ClienteServiceImpl implements ClienteService {
     	    }
     	    clienteRepository.deleteById(id);
     }
+    
 	@Override
 	public Cliente createClient(Cliente client) {
-		// TODO Auto-generated method stub
-		return null;
+		personaRepository.save(client.getPerson());
+		return clienteRepository.save(client);
+
 	}
 
 }

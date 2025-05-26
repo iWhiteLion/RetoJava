@@ -26,8 +26,14 @@ public class CuentaServiceImpl implements CuentaService {
     }
 
     @Override
-    public Cuenta createAccount(Cuenta account) {
-        return cuentaRepository.save(account);
+    public Cuenta createAccount(Cuenta cuenta) {
+        // Verificar si el número de cuenta ya existe
+        Optional<Cuenta> cuentaExistente = cuentaRepository.findByNumeroCuenta(cuenta.getNumeroCuenta());
+        if (cuentaExistente.isPresent()) {
+            throw new IllegalArgumentException("El número de cuenta ya existe: " + cuenta.getNumeroCuenta());
+        }
+        // Guardar la nueva cuenta
+        return cuentaRepository.save(cuenta);
     }
 
     @Override

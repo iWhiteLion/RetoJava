@@ -20,7 +20,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"person\": {\n    \"name\": \"Tobias Tamayo\",\n    \"gender\": \"M\",\n    \"age\": 30,\n    \"dni\": \"09949930030\",\n    \"address\": \"Av. Colon\",\n    \"phone\": \"09949930030\"\n  },\n  \"password\": \"pass1234\",\n  \"status\": true\n}",
+              "raw": "{\n  \"person\": {\n    \"name\": \"Enrique Bunbury\",\n    \"gender\": \"M\",\n    \"age\": 30,\n    \"dni\": \"09949930030\",\n    \"address\": \"Zaragoza\",\n    \"phone\": \"09949930030\"\n  },\n  \"password\": \"HeroesDelSilencio\",\n  \"status\": true\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -72,10 +72,10 @@
                 "value": "application/json"
               }
             ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"nombre\": \"Juan Modificado\",\n  \"apellido\": \"García\",\n  \"dni\": \"12345678\"\n}"
-            },
+			"body": {
+			  "mode": "raw",
+			  "raw": "{\n  \"clientId\": 1,\n  \"person\": {\n    \"personId\": 10,\n    \"name\": \"Juan\",\n   \"dni\": \"1234567890\",\n    \"age\": 30,\n    \"gender\": \"M\",\n    \"address\": \"Calle Falsa 123\",\n    \"phone\": \"0987654321\"\n  },\n  \"password\": \"nuevaClave123\",\n  \"status\": true\n}"
+			},
             "url": {
               "raw": "http://localhost:8080/clientes/1",
               "protocol": "http",
@@ -113,10 +113,10 @@
                 "value": "application/json"
               }
             ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"cliente\": {\n    \"id\": 1\n  },\n  \"numeroCuenta\": \"ACC123456\",\n  \"tipo\": \"AHORRO\",\n  \"saldoInicial\": 1000.0\n}"
-            },
+			"body": {
+			    "mode": "raw",
+			    "raw": "{\n  \"cliente\": {\n    \"clientId\": 4\n  },\n  \"numeroCuenta\": \"ACC5678907\",\n  \"tipoCuenta\": \"AHORROS\",\n  \"saldo\": 1000.0\n}"
+			  },
             "url": {
               "raw": "http://localhost:8080/cuentas",
               "protocol": "http",
