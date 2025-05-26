@@ -1,3 +1,47 @@
+-- Tabla de personas
+CREATE TABLE person (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    gender VARCHAR(10),
+    age INT,
+    identification VARCHAR(50) UNIQUE NOT NULL,
+    address VARCHAR(150),
+    phone VARCHAR(20)
+);
+
+-- Tabla de clientes
+CREATE TABLE client (
+    client_id SERIAL PRIMARY KEY,
+    person_id INT NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    status BOOLEAN DEFAULT TRUE,
+    CONSTRAINT fk_person FOREIGN KEY (person_id) REFERENCES person(id)
+);
+
+-- Tabla de cuentas
+CREATE TABLE account (
+    account_number VARCHAR(50) PRIMARY KEY,
+    account_type VARCHAR(50),
+    initial_balance NUMERIC(15,2) DEFAULT 0,
+    status BOOLEAN DEFAULT TRUE,
+    client_id INT NOT NULL,
+    CONSTRAINT fk_client FOREIGN KEY (client_id) REFERENCES client(client_id)
+);
+
+-- Tabla de movimientos
+CREATE TABLE transaction (
+    id SERIAL PRIMARY KEY,
+    date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    transaction_type VARCHAR(50),
+    amount NUMERIC(15,2) NOT NULL,
+    balance NUMERIC(15,2) NOT NULL,
+    account_number VARCHAR(50) NOT NULL,
+    CONSTRAINT fk_account FOREIGN KEY (account_number) REFERENCES account(account_number)
+);
+
+
+/* ======================== INGRESO DE DATOS DE PRUEBA ============================ */ 
+
 -- Datos de prueba en person
 INSERT INTO person (name, gender, age, identification, address, phone) VALUES
 ('Juan Pérez', 'M', 30, '1234567890', 'Av. Siempre Viva 123', '0998765432'),
@@ -34,9 +78,15 @@ INSERT INTO transaction (date, transaction_type, amount, balance, account_number
 ('2025-05-08 10:10:00', 'DEPOSITO', 1500.00, 1500.00, 'ACC567890');
 
 
+/* ============= CONSULTAS GENERALES DE CADA TABLA ===================*/
+SELECT * FROM transaction
+SELECT * FROM account
+SELECT * FROM client
+SELECT * FROM person
 -- Borrar todos los datos de cada tabla
 TRUNCATE TABLE transaction RESTART IDENTITY CASCADE;
 TRUNCATE TABLE account RESTART IDENTITY CASCADE;
 TRUNCATE TABLE client RESTART IDENTITY CASCADE;
 TRUNCATE TABLE person RESTART IDENTITY CASCADE;
+
 

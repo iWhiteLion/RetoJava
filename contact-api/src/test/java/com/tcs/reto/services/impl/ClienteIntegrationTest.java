@@ -24,9 +24,7 @@ public class ClienteIntegrationTest {
 
     @Test
     void testGuardarYBuscarCliente() {
-        // Primero guardamos una persona para la FK
         Persona persona = new Persona();
-        // Asumiendo que Persona tiene estos campos
         persona.setName("Juan");
         persona = personaRepository.save(persona);
 
