@@ -10,10 +10,29 @@ Reto realizado en base al Seniority de Junior ": Implementar los diferentes endp
 - **PostgreSQL** como base de datos relacional
 - **Lombok** (para simplificar el código Java)
 
+# Funcionalidades
+# F1: Generación de CRUDS (Crear, editar, actualizar y eliminar registros - Entidades: Cliente, Cuenta y Movimiento).
+# Los nombres de los endpoints a generar son:
+    • /cuentas
+    • /clientes
+    • /movimientos
+    
+# F2: Registro de movimientos: al registrar un movimiento en la cuenta se debe tener en cuenta lo siguiente:
+    • Para un movimiento se pueden tener valores positivos o negativos.
+    • Al realizar un movimiento se debe actualizar el saldo disponible.
+    • Se debe llevar el registro de las transacciones realizadas
+    
+# F3: Registro de movimientos: Al realizar un movimiento el cual no cuente con saldo, debe alertar mediante el siguiente mensaje “Saldo no disponible”
+    • Defina, según su expertise, la mejor manera de capturar y mostrar el error.
+
+# F5: Pruebas unitarias: Implementar 1 prueba unitaria para la entidad de dominio Cliente.
+
+# F6: Pruebas de Integración: Implementar 1 prueba de integración.
+
 ## Estructura del proyecto
 
 ```
-└───src
+────src
     ├───main
     │   ├───java
     │   │   └───com
@@ -23,7 +42,6 @@ Reto realizado en base al Seniority de Junior ": Implementar los diferentes endp
     │   │               │
     │   │               ├───bindings
     │   │               │       ApiResponse.java
-    │   │               │       ContactEntry.java
     │   │               │
     │   │               ├───controllers
     │   │               │       ClienteController.java
@@ -63,6 +81,22 @@ Reto realizado en base al Seniority de Junior ": Implementar los diferentes endp
     │   │
     │   └───resources
     │       │   application.properties
-    │       │   BDD.sql
-    │       │   datosPrueba.sql
+    │       │   BaseDatos.sql
+    │       │   test.json
+    │       │
+    │       ├───static
+    │       │       .gitkeep
+    │       │
+    │       └───templates
+    │               .gitkeep
+    │
+    └───test
+        └───java
+            └───com
+                └───tcs
+                    └───reto
+                        └───services
+                            └───impl
+                                    ClienteIntegrationTest.java
+                                    ClienteTest.java
 ```
