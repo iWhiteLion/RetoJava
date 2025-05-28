@@ -29,7 +29,7 @@ CREATE TABLE account (
 );
 
 -- Tabla de movimientos
-CREATE TABLE transaction (
+CREATE TABLE "transaction" (
     id SERIAL PRIMARY KEY,
     date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     transaction_type VARCHAR(50),
@@ -67,7 +67,7 @@ INSERT INTO account (account_number, account_type, initial_balance, status, clie
 ('ACC567890', 'AHORROS', 1500.00, TRUE, 5);
 
 -- Datos de prueba en transaction
-INSERT INTO transaction (date, transaction_type, amount, balance, account_number) VALUES
+INSERT INTO "transaction" (date, transaction_type, amount, balance, account_number) VALUES
 ('2025-05-01 10:00:00', 'DEPOSITO', 1000.00, 1000.00, 'ACC123456'),
 ('2025-05-02 15:30:00', 'RETIRO', 200.00, 800.00, 'ACC123456'),
 ('2025-05-03 11:00:00', 'DEPOSITO', 2500.50, 2500.50, 'ACC234567'),
@@ -79,14 +79,31 @@ INSERT INTO transaction (date, transaction_type, amount, balance, account_number
 
 
 /* ============= CONSULTAS GENERALES DE CADA TABLA ===================*/
-SELECT * FROM transaction
-SELECT * FROM account
-SELECT * FROM client
-SELECT * FROM person
+SELECT * FROM "transaction";
+SELECT * FROM account;
+SELECT * FROM client;
+SELECT * FROM person;
 -- Borrar todos los datos de cada tabla
-TRUNCATE TABLE transaction RESTART IDENTITY CASCADE;
+TRUNCATE TABLE "transaction" RESTART IDENTITY CASCADE;
 TRUNCATE TABLE account RESTART IDENTITY CASCADE;
 TRUNCATE TABLE client RESTART IDENTITY CASCADE;
 TRUNCATE TABLE person RESTART IDENTITY CASCADE;
+
+
+
+
+-- Eliminar y volver a crear la FK en 'account' con ON DELETE CASCADE
+ALTER TABLE account DROP CONSTRAINT fk_client;
+ALTER TABLE account
+ADD CONSTRAINT fk_client FOREIGN KEY (client_id)
+REFERENCES client(client_id)
+ON DELETE CASCADE;
+
+-- Eliminar y volver a crear la FK en 'transaction' con ON DELETE CASCADE
+ALTER TABLE "transaction" DROP CONSTRAINT fk_account;
+ALTER TABLE "transaction"
+ADD CONSTRAINT fk_account FOREIGN KEY (account_number)
+REFERENCES account(account_number)
+ON DELETE CASCADE;
 
 

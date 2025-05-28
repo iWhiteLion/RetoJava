@@ -3,7 +3,7 @@ package com.tcs.reto.entities;
 import jakarta.persistence.*;
 import lombok.*;
 @Entity
-@Table(name = "client")
+@Table(name = "client") //Nombre de la tabla
 @Data //Getters y Setters
 @NoArgsConstructor 
 @AllArgsConstructor

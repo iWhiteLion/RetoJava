@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "transaction")
+@Table(name = "transaction") //Nombre de la tabla
 @Data //Getters y Setters
 @NoArgsConstructor
 @AllArgsConstructor

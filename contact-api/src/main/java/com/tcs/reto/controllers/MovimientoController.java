@@ -18,12 +18,14 @@ public class MovimientoController {
         this.movimientoService = movimientoService;
     }
 
+    // METODO GET GENERAL (OBTENER MOVIMIENTOS)
     @GetMapping
     public ResponseEntity<ApiResponse> getAllMovimientos() {
         List<Movimiento> movimientos = movimientoService.getAllTransactions();
         return ResponseEntity.ok(ApiResponse.success(movimientos));
     }
 
+ // METODO GET POR ID DE MOVIMIENTO (OBTENER MOVIMIENTO POR ID)
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse> getMovimientoById(@PathVariable("id") Long id) {
         return movimientoService.getTransactionById(id)
@@ -31,6 +33,7 @@ public class MovimientoController {
                 .orElse(ResponseEntity.status(404).body(ApiResponse.notFound("Movimiento no encontrado")));
     }
 
+    //METODO POST (CREAR MOVIMIENTO)
     @PostMapping
     public ResponseEntity<ApiResponse> createMovimiento(@RequestBody Movimiento movimiento) {
         try {
@@ -41,16 +44,8 @@ public class MovimientoController {
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<ApiResponse> updateMovimiento(@PathVariable("id") Long id, @RequestBody Movimiento movimiento) {
-        try {
-            Movimiento updated = movimientoService.updateTransaction(id, movimiento);
-            return ResponseEntity.ok(ApiResponse.success(updated));
-        } catch (RuntimeException e) {
-            return ResponseEntity.status(404).body(ApiResponse.notFound("Movimiento no encontrado"));
-        }
-    }
-
+    
+    //METODO DELETE (BORRAR MOVIMIENTO)
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse> deleteMovimiento(@PathVariable("id") Long id) {
         try {

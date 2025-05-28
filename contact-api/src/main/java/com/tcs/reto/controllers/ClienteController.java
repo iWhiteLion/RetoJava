@@ -18,12 +18,14 @@ public class ClienteController {
         this.clientService = clientService;
     }
 
+    // METODO GET GENERAL (OBTENER CLIENTES)
     @GetMapping
     public ResponseEntity<ApiResponse> getAllClients() {
         List<Cliente> clients = clientService.getAllClients();
         return ResponseEntity.ok(ApiResponse.success(clients));
     }
 
+    // METODO GET POR ID DE CLIENTE (OBTENER CLIENTE POR ID)
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse> getClientById(@PathVariable("id") Integer id) {
         return clientService.getClientById(id)
@@ -31,12 +33,14 @@ public class ClienteController {
             .orElse(ResponseEntity.status(404).body(ApiResponse.notFound("Cliente no encontrado")));
     }
 
+    //METODO POST (CREAR CLIENTE)
     @PostMapping
     public ResponseEntity<ApiResponse> createClient(@RequestBody Cliente client) {
         Cliente created = clientService.createClient(client);
         return ResponseEntity.status(201).body(ApiResponse.success(created));
     }
 
+    //METODO PUT (ACTUALIZAR UN CLIENTE)
     @PutMapping("/{id}")
     public ResponseEntity<ApiResponse> updateClient(@PathVariable("id") Integer id, @RequestBody Cliente client) {
         try {
@@ -47,6 +51,7 @@ public class ClienteController {
         }
     }
 
+    //METODO DELETE (BORRAR CLIENTE)
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse> deleteClient(@PathVariable("id") Integer id) {
         try {

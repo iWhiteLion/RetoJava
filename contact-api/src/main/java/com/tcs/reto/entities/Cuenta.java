@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Data //Getters y Setters
-@Table(name = "account")
+@Table(name = "account") //Nombre de la tabla
 public class Cuenta {
 
     @Id

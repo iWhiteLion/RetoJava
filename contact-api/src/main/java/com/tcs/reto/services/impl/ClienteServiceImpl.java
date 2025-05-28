@@ -16,7 +16,7 @@ import java.util.Optional;
 public class ClienteServiceImpl implements ClienteService {
 
     private final ClienteRepository clienteRepository;
-    private final PersonaRepository personaRepository;  // Inyectar repo Persona
+    private final PersonaRepository personaRepository;  
 
     @Override
     public List<Cliente> getAllClients() {
@@ -44,12 +44,14 @@ public class ClienteServiceImpl implements ClienteService {
     }
     @Override
     public void deleteClient(Integer id) {
-        //clienteRepository.deleteById(id);
-    	 if (!clienteRepository.existsById(id)) {
-    	        throw new RuntimeException("Cliente con ID " + id + " no encontrado.");
-    	    }
-    	    clienteRepository.deleteById(id);
+        Optional<Cliente> client = clienteRepository.findById(id);
+        if (client.isPresent()) {
+            clienteRepository.deleteById(id); 
+        } else {
+            throw new RuntimeException("Cliente no encontrado");
+        }
     }
+
     
 	@Override
 	public Cliente createClient(Cliente client) {
