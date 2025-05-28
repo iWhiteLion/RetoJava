@@ -23,11 +23,18 @@ Reto realizado en base al Seniority de Junior ": Implementar los diferentes endp
     • Se debe llevar el registro de las transacciones realizadas
     
 # F3: Registro de movimientos: Al realizar un movimiento el cual no cuente con saldo, debe alertar mediante el siguiente mensaje “Saldo no disponible”
-    • Defina, según su expertise, la mejor manera de capturar y mostrar el error.
+
+![image](https://github.com/user-attachments/assets/75a5f86e-b244-4365-a829-cb7f2ead592e)
+
 
 # F5: Pruebas unitarias: Implementar 1 prueba unitaria para la entidad de dominio Cliente.
 
 # F6: Pruebas de Integración: Implementar 1 prueba de integración.
+
+# Visualización de la colección en PostMan para validación de endpoints
+
+![image](https://github.com/user-attachments/assets/33ba5abb-59c3-4509-8c2a-84b8055d2206)
+
 
 ## Estructura del proyecto
 
