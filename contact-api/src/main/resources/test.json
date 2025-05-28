@@ -221,7 +221,7 @@
           "request": {
             "method": "DELETE",
             "url": {
-              "raw": "http://localhost:8080/cuentas/ACC345678",
+              "raw": "http://localhost:8080/cuentas/ACC456789",
               "protocol": "http",
               "host": [
                 "localhost"
@@ -229,7 +229,7 @@
               "port": "8080",
               "path": [
                 "cuentas",
-                "ACC345678"
+                "ACC456789"
               ]
             }
           }
@@ -251,7 +251,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"tipoMovimiento\": \"RETIRO\",\n  \"valor\": 100.00,\n  \"cuenta\": {\n    \"numeroCuenta\": \"ACC345678\"\n  }\n}"
+              "raw": "{\n  \"tipoMovimiento\": \"RETIRO\",\n  \"valor\": 100.00,\n  \"cuenta\": {\n    \"numeroCuenta\": \"ACC234567\"\n  }\n}"
             },
             "url": {
               "raw": "http://localhost:8080/movimientos",
@@ -278,7 +278,34 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"tipoMovimiento\": \"DEPOSITO\",\n  \"valor\": 100.00,\n  \"cuenta\": {\n    \"numeroCuenta\": \"ACC345678\"\n  }\n}"
+              "raw": "{\n  \"tipoMovimiento\": \"DEPOSITO\",\n  \"valor\": 100.00,\n  \"cuenta\": {\n    \"numeroCuenta\": \"ACC234567\"\n  }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/movimientos",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "movimientos"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Test F3, Se intentará retirar más de lo existente en cuenta",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipoMovimiento\": \"RETIRO\",\n  \"valor\": 200.00,\n  \"cuenta\": {\n    \"numeroCuenta\": \"ACC345678\"\n  }\n}"
             },
             "url": {
               "raw": "http://localhost:8080/movimientos",
